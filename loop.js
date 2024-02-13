@@ -45,16 +45,16 @@
 
 const rl=require("readline-sync")
 const fs=require("node:fs")
-var pwd= Number( rl.question("set a 4 digit password\n"))
-if (isNaN(pwd) && pwd.length !== 4){
-    console.log("please enter a number passcode!!!\n")
+var pwd=rl.question("set a 4 digit password\n")
+if (isNaN(Number(pwd)) && pwd.length !== 4){
+    console.log("please enter a 4 digit number passcode!!!\n")
     return
 }else{
-    fs.writeFileSync("./pwd.txt", ""+pwd )
+    fs.writeFileSync("./pwd.txt", pwd )
 }
 
 var i=0;
-while(1<3){
+while(i<3){
     var password=Number(rl.question("enter your password"))
     pwd = Number(fs.readFileSync("./pwd.txt", "utf8"))
     if(password !== pwd){
