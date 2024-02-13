@@ -46,7 +46,7 @@
 const rl=require("readline-sync")
 const fs=require("node:fs")
 var pwd=rl.question("set a 4 digit password\n")
-if (isNaN(Number(pwd)) && pwd.length !== 4){
+if (isNaN(Number(pwd)) || pwd.length !== 4){
     console.log("please enter a 4 digit number passcode!!!\n")
     return
 }else{
