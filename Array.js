@@ -26,6 +26,7 @@ const numbers = [12, 44, 9.8473, 30, -12, 57382, 1, 0.3422, 7]
 // }
 // console.log(highestNumber)
 
+console.log(Math.max(...numbers))// shortcut
+console.log(Math.min(...numbers))// shortcut
 
- 
 
