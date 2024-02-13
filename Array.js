@@ -17,4 +17,15 @@
 // // 	console.log(studentName + " is in class today.")
 // // }
 
-const numbers = [12, 44, 9.8473, 30, -12, 57382, 1, 0.3422]
+const numbers = [12, 44, 9.8473, 30, -12, 57382, 1, 0.3422, 7]
+// var highestNumber= numbers[0]
+// for( var i= 0; i<numbers.length; i++){   
+//     if(highestNumber<numbers[i]){
+//         var highestNumber=numbers[i]
+//     }
+// }
+// console.log(highestNumber)
+
+
+ 
+
