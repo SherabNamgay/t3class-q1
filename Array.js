@@ -29,11 +29,11 @@ const numbers = [12, 44, 9.8473, 30, -12, 57382, 1, 0.3422, ]
 // console.log(Math.max(...numbers))// shortcut
 // console.log(Math.min(...numbers))// shortcut
 
-var middleNumber=numbers[i]
-for (var i=0; i< numbers.length; i++){
-    if(middleNumber<numbers[i]){
-        middleNumber=numbers[i]
-        if middleNumber>numbers
-    }
+// var middleNumber=numbers[i]
+// for (var i=0; i< numbers.length; i++){
+//     if(middleNumber<numbers[i]){
+//         middleNumber=numbers[i]
+//         if middleNumber>numbers
+//     }
 
-}
+// }
