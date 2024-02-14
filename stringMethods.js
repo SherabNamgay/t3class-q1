@@ -1,6 +1,8 @@
 // var result = "Tom is at his computer.".split("")
 // const restrictedWords = ["banana", "orange", "apple", "peach", "grape"]
 
+const { setDefaultOptions } = require("readline-sync")
+
 // function checkUsername(username) {
 // 	var isUserNameOk = true
 
@@ -29,16 +31,30 @@ var result = "john hames fones"
 
 
 //  SOLUTION !!!!!
-var splitIntoWords = result.split(" ")
+// var splitIntoWords = result.split(" ")
 
-for (var i = 0; i < splitIntoWords.length; i ++) {
-	var currentWord = splitIntoWords[i]
-	var lettersOfCurrentWord = currentWord.split("")
-    lettersOfCurrentWord[0] = lettersOfCurrentWord[0].toLocaleUpperCase() // diff
-	// var capitalizedLetter = lettersOfCurrentWord[0].toLocaleUpperCase()
-	// lettersOfCurrentWord[0] = capitalizedLetter
-	var capitalizedWord = lettersOfCurrentWord.join("")
-	splitIntoWords[i] = capitalizedWord
+// for (var i = 0; i < splitIntoWords.length; i ++) {
+// 	var currentWord = splitIntoWords[i]
+// 	var lettersOfCurrentWord = currentWord.split("")
+//     lettersOfCurrentWord[0] = lettersOfCurrentWord[0].toLocaleUpperCase() // diff
+// 	// var capitalizedLetter = lettersOfCurrentWord[0].toLocaleUpperCase()
+// 	// lettersOfCurrentWord[0] = capitalizedLetter
+// 	var capitalizedWord = lettersOfCurrentWord.join("")
+// 	splitIntoWords[i] = capitalizedWord
+// }
+// const capitalizedName = splitIntoWords.join(" ")
+// console.log(capitalizedName)
+
+
+var sentence="hello how are you today"
+
+function longestWord(sentence){
+    var words= sentence.split(" ")
+    var longestWord=""
+    for (var i=0; i<words.length; i++){
+        if(longestWord.length<words[i].length){
+            longestWord=words[i]
+        }
+    }
+   return longestWord
 }
-const capitalizedName = splitIntoWords.join(" ")
-console.log(capitalizedName)

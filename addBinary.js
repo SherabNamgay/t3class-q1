@@ -14,8 +14,8 @@ function addBinary(binA, binB) {
 }
 addBinary(a,b)
 
-addBinary(a, b) === [1, 0, 0, 0, 1, 0, 1]
 
+// addBinary(a, b) === [1, 0, 0, 0, 1, 0, 1]
 const a = [1, 0, 1, 1, 0, 1]
 const b = [0, 1, 1, 0, 1, 0]
 //  010101
