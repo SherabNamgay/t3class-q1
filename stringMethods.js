@@ -1,17 +1,17 @@
 // var result = "Tom is at his computer.".split("")
 // const restrictedWords = ["banana", "orange", "apple", "peach", "grape"]
 
-const { setDefaultOptions } = require("readline-sync")
+// const { setDefaultOptions } = require("readline-sync")
 
 // function checkUsername(username) {
 // 	var isUserNameOk = true
 
-// 	for (var i = 0; i < restrictedWords.length; i += 1) {
-// 		var includesRestrictedWord = username.includes(restrictedWords[i])
-// 		if (includesRestrictedWord) {
-// 			isUserNameOk = false
-// 		}
-// 	}
+	// for (var i = 0; i < restrictedWords.length; i += 1) {
+	// 	var includesRestrictedWord = username.includes(restrictedWords[i])
+	// 	if (includesRestrictedWord) {
+	// 		isUserNameOk = false
+	// 	}
+	// }
 
 // 	return isUserNameOk
 // }

@@ -18,5 +18,5 @@ function whichCenturyIs(year){
 	return century + suffix + " century"
 }
 
-var century = 
+// var century = 
 
