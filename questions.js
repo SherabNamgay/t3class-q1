@@ -1,23 +1,5 @@
 
-	// Split Binary Chunks
-
-	// For a given string of binary, return an array of strings where each string length is equal to the passed chunk size.
-
-	// Input:
-	// - "11010111011101110001101010110100"
-	// - 4
-
-	// Output:
-	// ["1101", "0111", "0111", "0111", "0001", "1010", "1011", "0100"]
-
-	// If the string is not divisible by the chunk integer, simply chunk the remainder together.
-
-	// Input:
-	// - "10101010"
-	// - 6
-	
-	// Output:
-	// ["101010", "10"]
+	// get binary in chunks
     function chunks(chunkSize,binary){
         binary=""+binary
         var myarray=[];
@@ -26,27 +8,8 @@
         }
         return myarray
     }
-    // console.log(chunks(4, 11010101010100010101))
 
-
-/*
-	Get Middle Characters
-	For a given string, return the middlemost character (or characters if the string has an even length).
-
-	Input:
-	- "hello"
-
-	Output:
-	"l"
-
-	Input:
-	- "Kuzuzangpo"
-
-	Output:
-	"za"
-
-*/
-
+	// to get the middle character of a string
 function getMiddleCharacters(someString) {
     var middle=""
     if(someString.length%2 ==0){
@@ -87,8 +50,66 @@ function getMiddleCharacters(someString) {
 	If there are more than one possible deepest value, return either.
 
 */
+var obj={a: 1,b: {c: 2},d: 3,e: {f: {g: 4}, i:{j:5}}}
 
-function getDeepestValue(someObject) {
-    var i=0
-    while (i<)
+// function getDeepestValue(obj) {
+//     var deepestValue=[]
+//     for(const keys in obj){
+//         if (typeof obj[keys]==="object"){
+//            var innervalue = (getDeepestValue(obj[keys])) 
+// 		   if(innervalue !== undefined){
+// 			deepestValue=innervalue
+// 		   }
+// 		//    console.log(obj[keys])
+// 		//    console.log(innervalue)
+// 		}else{
+// 			// console.log(obj[keys])
+// 			deepestValue.push(obj[keys])
+// 		}
+//     }
+// 	return deepestValue
+// }
+
+// function getDeepestValue(obj){
+// 	var deepestValue=[]
+// 	count =0;
+// 	for(const keys in obj){
+// 		if(typeof obj[keys]==="object"){
+// 			var innervalue = getDeepestValue(obj[keys])
+// 			if (innervalue !== undefined){
+// 				deepestValue=innervalue
+// 			}
+// 		}else{
+// 			deepestValue.push(obj[keys])
+// 		}
+// 	}
+// 	return deepestValue
+// }
+
+
+
+// sonams code
+function getDeepestValue(obj) {
+    var keepTrack = []
+    var capture = Object.values(obj)
+    var canGoDeeper = []
+    for (var i =0 ; i<capture.length; i++){
+        if( typeof capture[i] === 'object'){
+            canGoDeeper.push(capture[i])
+        }
+    } 
+    if(canGoDeeper.length === 0){
+        return capture[0]
+    }else{
+        for (var j = 0; j<canGoDeeper.length; i++){
+            getDeepestValue(keepTrack)
+        }
+    }
 }
+
+
+// remodel
+
+  
+console.log(getDeepestValue(obj))
+
