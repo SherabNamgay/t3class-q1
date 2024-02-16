@@ -12,11 +12,14 @@
 	// to get the middle character of a string
 function getMiddleCharacters(someString) {
     var middle=""
+	var half=someString.length/2
     if(someString.length%2 ==0){
-        middle= someString[(someString.length/2)-1]+someString[(someString.length/2)] ;
+		middle=someString.split(half-1,half+1)
+        // middle= someString[(someString.length/2)-1]+someString[(someString.length/2)] ;
         return middle
     }else{
-        middle= someString[Math.floor(someString.length/2)]
+		middle=someString.split(Math.floor(half),Math.ceil(half))
+        // middle= someString[Math.floor(someString.length/2)]
         return middle
     }
 }
@@ -50,34 +53,65 @@ function getMiddleCharacters(someString) {
 	If there are more than one possible deepest value, return either.
 
 */
-var obj={a: 1,b: {c: 2},d: 3,e: {f: {g: 4}, i:{j:5}}}
+var obj={a: 1,b: {c: 2},d: 3,e: {f: {g: { k: 8 }}, i:{j:5}}}
 
-// function getDeepestValue(obj) {
-//     var deepestValue=[]
-//     for(const keys in obj){
-//         if (typeof obj[keys]==="object"){
-//            var innervalue = (getDeepestValue(obj[keys])) 
-// 		   if(innervalue !== undefined){
-// 			deepestValue=innervalue
-// 		   }
-// 		//    console.log(obj[keys])
-// 		//    console.log(innervalue)
-// 		}else{
-// 			// console.log(obj[keys])
-// 			deepestValue.push(obj[keys])
-// 		}
-//     }
-// 	return deepestValue
-// }
+function getDeepestValue(obj, depth = 0) {
+    var deepestValue=[]
+    for(const key in obj){
+        if (typeof obj[key]==="object"){
+			depth += 1
+			console.log(depth)
+           var innervalue = (getDeepestValue(obj[key])) 
+		   if(innervalue !== undefined){
+			deepestValue=innervalue
+		   }
+		//    console.log(obj[key])
+		//    console.log(innervalue)
+		}else{
+			// console.log(obj[key])
+			deepestValue.push(obj[key])
+		}
+    }
+	return deepestValue
+}
+
+
+
+
+// sonams code
+/*function getDeepestValue(obj) {
+	var keepTrack = []
+    var capture = Object.values(obj)
+    var canGoDeeper = []
+    for (var i =0 ; i<capture.length; i++){
+		if( typeof capture[i] === 'object'){
+			canGoDeeper.push(capture[i])
+        }
+    } 
+    if(canGoDeeper.length === 0){
+		return capture[0]
+    }else{
+		for (var j = 0; j<canGoDeeper.length; i++){
+			getDeepestValue(keepTrack)
+        }
+    }
+}
+*/
+
+// remodel
+
 
 // function getDeepestValue(obj){
 // 	var deepestValue=[]
 // 	count =0;
 // 	for(const keys in obj){
+// 		count+=1
 // 		if(typeof obj[keys]==="object"){
 // 			var innervalue = getDeepestValue(obj[keys])
 // 			if (innervalue !== undefined){
 // 				deepestValue=innervalue
+// 				count+=1
+// 				console.log(count)
 // 			}
 // 		}else{
 // 			deepestValue.push(obj[keys])
@@ -85,31 +119,5 @@ var obj={a: 1,b: {c: 2},d: 3,e: {f: {g: 4}, i:{j:5}}}
 // 	}
 // 	return deepestValue
 // }
-
-
-
-// sonams code
-function getDeepestValue(obj) {
-    var keepTrack = []
-    var capture = Object.values(obj)
-    var canGoDeeper = []
-    for (var i =0 ; i<capture.length; i++){
-        if( typeof capture[i] === 'object'){
-            canGoDeeper.push(capture[i])
-        }
-    } 
-    if(canGoDeeper.length === 0){
-        return capture[0]
-    }else{
-        for (var j = 0; j<canGoDeeper.length; i++){
-            getDeepestValue(keepTrack)
-        }
-    }
-}
-
-
-// remodel
-
-  
 console.log(getDeepestValue(obj))
 
