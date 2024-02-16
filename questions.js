@@ -56,68 +56,80 @@ function getMiddleCharacters(someString) {
 var obj={a: 1,b: {c: 2},d: 3,e: {f: {g: { k: 8 }}, i:{j:5}}}
 
 function getDeepestValue(obj, depth = 0) {
-    var deepestValue=[]
-    for(const key in obj){
-        if (typeof obj[key]==="object"){
-			depth += 1
-			console.log(depth)
-           var innervalue = (getDeepestValue(obj[key])) 
-		   if(innervalue !== undefined){
-			deepestValue=innervalue
-		   }
-		//    console.log(obj[key])
-		//    console.log(innervalue)
-		}else{
-			// console.log(obj[key])
-			deepestValue.push(obj[key])
+    if (typeof obj !== 'object') {
+		return {
+			val: potentialObject,
+			depth: depth
 		}
-    }
-	return deepestValue
+	}else{
+		for(const key in obj){
+			if (typeof obj[key]==="object"){
+			   var innervalue = (getDeepestValue(obj[key], depth+1)) 
+			   if(innervalue !== undefined){
+				deepestValue=innervalue
+			   }
+			//    console.log(obj[key])
+			//    console.log(innervalue)
+			}else{
+				// console.log(obj[key])
+				deepestValue.push(obj[key])
+			}
+		}
+		return deepestValue
+	}
+	}
+
+function doTheWork(potentialObject, depth = 0) {
+
+	if (typeof potentialObject !== 'object') {
+		return {
+			val: potentialObject,
+			depth: depth
+		}
+	} else {
+		const children = Object.values(potentialObject)
+		var deepValues = []
+		for (var i = 0; i < children.length; i++) {
+			deepValues = deepValues.concat(doTheWork(children[i], depth + 1))
+		}
+
+		var deepestDepth = deepValues[0].depth
+		var deepestValue = deepValues[0].val
+		for (var i = 0; i < deepValues.length; i++) {
+			if (deepValues[i].depth > deepestDepth) {
+				var deepestDepth = deepValues[i].depth
+				var deepestValue = deepValues[i].val
+			}
+		}
+		return { val: deepestValue, depth: deepestDepth }
+	}
+}
+
+function getDeepestValue(potentialObject) {
+	const result = doTheWork(potentialObject)
+	return result.val
 }
 
 
-
-
-// sonams code
-/*function getDeepestValue(obj) {
-	var keepTrack = []
-    var capture = Object.values(obj)
-    var canGoDeeper = []
-    for (var i =0 ; i<capture.length; i++){
-		if( typeof capture[i] === 'object'){
-			canGoDeeper.push(capture[i])
-        }
-    } 
-    if(canGoDeeper.length === 0){
-		return capture[0]
-    }else{
-		for (var j = 0; j<canGoDeeper.length; i++){
-			getDeepestValue(keepTrack)
-        }
-    }
+const testObj = {
+	a: 1,
+	b: {
+		c: 2
+	},
+	d: 3,
+	e: {
+		f: {
+			g: 4
+		},
+		h: {
+			i: 5
+		}
+	}
 }
-*/
-
-// remodel
 
 
-// function getDeepestValue(obj){
-// 	var deepestValue=[]
-// 	count =0;
-// 	for(const keys in obj){
-// 		count+=1
-// 		if(typeof obj[keys]==="object"){
-// 			var innervalue = getDeepestValue(obj[keys])
-// 			if (innervalue !== undefined){
-// 				deepestValue=innervalue
-// 				count+=1
-// 				console.log(count)
-// 			}
-// 		}else{
-// 			deepestValue.push(obj[keys])
-// 		}
-// 	}
-// 	return deepestValue
-// }
-console.log(getDeepestValue(obj))
+const result = getDeepestValue(testObj)
+
+console.log(result)
+
 
