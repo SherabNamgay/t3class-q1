@@ -1,6 +1,11 @@
 {
   "dependencies": {
+    "bootstrap": "^5.3.2",
+    "bulma": "^0.9.4",
     "convert-string-to-number": "^1.0.3",
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }

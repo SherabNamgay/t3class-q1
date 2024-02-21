@@ -171,19 +171,23 @@ console.log(countSheeps(sheep))
 
 // console.log(accum(s))
 
-var s ="adfadfewafdF"
+// var s ="adfadfewafdF"
+// // function accum(s) {
+// //   var array=s.split("")
+// //   var result=[]
+// //   for (var i=0; i<array.length; i++){
+// //     result.push(array[i].toUpperCase())
+// //     result[i]= result[i]+array[i].toLowerCase().repeat((i))
+// //   }
+// //   return result.join("-")
+// // } 
+
+
 // function accum(s) {
-//   var array=s.split("")
-//   var result=[]
-//   for (var i=0; i<array.length; i++){
-//     result.push(array[i].toUpperCase())
-//     result[i]= result[i]+array[i].toLowerCase().repeat((i))
-//   }
-//   return result.join("-")
-// } 
+//   return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+// }
+// console.log(accum(s))
 
-
-function accum(s) {
-  return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
-}
-console.log(accum(s))
+var DNA="AATT"
+var newD=DNA.replace(/A/gi,"T")
+console.log(newD)
